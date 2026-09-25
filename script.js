@@ -95,8 +95,7 @@ document.querySelector('.hint-btn').onclick = () => {
     for (let c = m.c1; c <= m.c2; c++) {
       const i = r * COLS + c;
       if (grid[i] >= 0) {
-        cells[i].classList.add('hint'); // 노란색 강조 클래스 추가
-        hs.push(i);
+        cells[i].classList.add('hint');
       }
     }
   }
@@ -242,7 +241,7 @@ setDd();
 
   document.querySelectorAll('.dif button').forEach(b => b.onclick = () => {
   diff = b.dataset.d;
-  
+
   document.querySelectorAll('.dif button').forEach(x => x.classList.toggle('on', x === b));
   setDd();
   loadBest();
