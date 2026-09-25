@@ -7,7 +7,7 @@ const F = [
   'faces/face6.png'
 ];
 
-let COLS = 12, ROWS = 16, wide = false, TIME = 120, KINDS = 6, hints = 3, diff = '보통';
+let COLS = 12, ROWS = 16, wide = false, TIME = 120, KINDS = 6, hints = 3, diff = 'Normal';
 
 const D = {
   Easy: { k: 4, t: 150, h: 5 },
@@ -15,7 +15,6 @@ const D = {
   Hard: { k: 6, t: 90, h: 1 },
 };
 
-// 시트 이미지 렌더링
 const sheetEl = document.querySelector('.sheet');
 if (sheetEl && typeof F !== 'undefined' && F.length > 0) {
   sheetEl.innerHTML = F.map(u => `<img src="${u}" alt="">`).join('');
@@ -68,8 +67,6 @@ function init() {
   left = TIME;
   upd();
 }
-
-// 1. UI 갱신 함수 (기존 작성하신 코드)
 function upd() {
   const scoreEl = document.querySelector('.score-val');
   const timeEl = document.querySelector('.time-val');
@@ -85,7 +82,6 @@ function upd() {
   }
 }
 
-// 2. 💡 힌트 깜박임 효과 코드가 들어갈 올바른 위치!
 document.querySelector('.hint-btn').onclick = () => {
   if (!playing || hints <= 0) return;
   const m = findMove();
@@ -105,7 +101,6 @@ document.querySelector('.hint-btn').onclick = () => {
     }
   }
   
-  // 💡 3000ms (3초) 동안 표시 후 원래대로 제거
   setTimeout(() => {
     hs.forEach(i => cells[i].classList.remove('hint'));
   }, 3000);
@@ -245,8 +240,9 @@ function setDd() {
 }
 setDd();
 
-document.querySelectorAll('.dif button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('.dif button').forEach(b => b.onclick = () => {
   diff = b.dataset.d;
+  
   document.querySelectorAll('.dif button').forEach(x => x.classList.toggle('on', x === b));
   setDd();
   loadBest();
@@ -262,6 +258,7 @@ function end() {
     const bestValEl = document.querySelector('.best-val');
     if (bestValEl) bestValEl.textContent = best;
   }
+
   document.querySelector('.intro').style.display = 'none';
   document.querySelector('.res').style.display = 'flex';
   document.querySelector('.big').textContent = score;
@@ -270,13 +267,19 @@ function end() {
   document.querySelector('.ov').classList.remove('hide');
 }
 
-document.querySelector('.go-btn').onclick = () => {
+  document.querySelector('.go-btn').onclick = () => {
   document.querySelector('.ov').classList.add('hide');
+  document.querySelector('.intro').style.display = 'none';
+  document.querySelector('.res').style.display = 'none';
+  
   const msgEl = document.querySelector('.msg');
+  
   if (msgEl) msgEl.textContent = '';
+  
   init();
   playing = true;
   upd();
+
   clearInterval(timer);
   timer = setInterval(() => {
     left--;

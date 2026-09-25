@@ -237,10 +237,10 @@ body {
 
 .c.hint {
   z-index: 10 !important;
-  outline: 4px solid #ffeb3b !important;   /* 선명한 노란색 테두리 */
-  background-color: rgba(255, 235, 59, 0.35) !important; /* 노란색 배경 강조 */
-  box-shadow: 0 0 18px #ffeb3b !important; /* 주변 노란색 빛 */
-  transform: scale(1.05);                  /* 살짝 확대하여 강조 */
+  outline: 4px solid #ffeb3b !important;
+  background-color: rgba(255, 235, 59, 0.35) !important;
+  box-shadow: 0 0 18px #ffeb3b !important; 
+  transform: scale(1.05);
   transition: all 0.2s ease-in-out;
 }
 
