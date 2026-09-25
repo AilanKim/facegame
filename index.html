@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>표정 게임!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <span>⏱ <span class="time-val">120</span></span>
+      <span>Score <span class="score-val">0</span></span>
+      <span style="font-size:13px;opacity:.7;align-self:center">Best! <span class="best-val">0</span></span>
+    </div>
+    <div class="bar"><i class="bar-fill"></i></div>
+    <div class="board"></div>
+    <div class="foot">
+      <button class="hint-btn">💡 Hint 3</button>
+      <div class="msg"></div>
+    </div>
+  </div>
+
+  <div class="ov">
+    <div class="intro">
+      <h1>표정게임!</h1>
+      <p>드래그로 네모 범위를 잡아서<br><b>안의 얼굴이 전부 같은 표정</b>이면 사라져요!<br>(2개 이상, 빈칸은 OK)</p>
+      <div class="sheet"></div>
+    </div>
+    <div class="res">
+      <div class="lb">Score</div>
+      <div class="big">0</div>
+      <div class="best best-t"></div>
+    </div>
+    <div class="dif">
+      <button data-d="Easy">Easy</button>
+      <button data-d="Normal" class="on">Normal</button>
+      <button data-d="Hard">Hard</button>
+    </div>
+    <div class="dd"></div>
+    <button class="go-btn">Start</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
