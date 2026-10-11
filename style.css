@@ -39,11 +39,17 @@ html {
 
 body {
   margin: 0;
+  padding: 2px 0;
   background: var(--bg);
   color: var(--fg);
   font-family: -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
   display: flex;
+  flex-direction: column !important;
+  align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
   user-select: none;
   -webkit-user-select: none;
 }
@@ -327,4 +333,25 @@ button {
 .res .big {
     font-size: clamp(60px, 25vw, 120px);
   }
+}
+
+.simple-footer {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 0px;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.simple-footer .copyright {
+  font-size: 11px;
+  font-weight: bold;
+  color: #666666;
+  margin: 0 0 2px 0;
+}
+
+.simple-footer .footer-sub {
+  font-size: 10px;
+  color: #888888;
+  margin: 0;
 }
