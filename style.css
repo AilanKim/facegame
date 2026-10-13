@@ -314,8 +314,8 @@ button {
 .wrap {
   padding: 6px 4px 12px;
 }
-.wrap.tall,
-.wrap.wide {
+
+.wrap.tall, .wrap.wide {
   max-width: 100% !important; 
 }
 
@@ -354,4 +354,105 @@ button {
   font-size: 10px;
   color: #888888;
   margin: 0;
+}
+
+.info-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-modal-content {
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    max-height: 85vh;
+    overflow-y: auto; /* 내용이 길면 스크롤 가능 */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative;
+    font-family: 'Pretendard', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #888;
+}
+.close-modal-btn:hover { 
+  color: #111; 
+}
+
+.info-modal-content h2 { 
+  font-size: 22px; 
+  color: #ff007f; 
+  margin-bottom: 10px; }
+
+.info-modal-content h3 {
+  font-size: 16px; 
+  color: #222; 
+  margin: 20px 0 8px 0; }
+
+.info-modal-content p, .info-modal-content li { 
+  font-size: 14px; 
+  color: #555; }
+
+.modal-list { 
+  padding-left: 20px; 
+  margin-bottom: 15px; }
+
+.modal-rule-box { 
+  background: #f9f9f9; 
+  padding: 15px; 
+  border-radius: 12px; 
+  margin-top: 10px; }
+
+.modal-rule-box h4 { 
+  font-size: 14px; 
+  color: #333; 
+  margin-bottom: 5px; }
+
+.modal-rule-box ol { 
+  padding-left: 18px; 
+  margin-bottom: 10px; 
+  font-size: 13px; }
+
+.modal-divider { 
+  border: none; 
+  border-top: 1px solid #eee; 
+  margin: 20px 0; }
+
+.tech-stack-text { 
+  font-size: 13px; 
+  color: #777; }
+
+.info-btn {
+    border: none !important;
+    outline: none !important;
+    background: #fff !important;
+    color: #333 !important;
+    font-size: 15px !important;
+    font-weight: bold !important;
+    padding: 14px 24px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    cursor: pointer !important;
+    margin-bottom: 16px !important;
+    transition: transform 0.1s ease;
+}
+
+.info-btn:hover {
+    transform: translateY(-2px);
 }

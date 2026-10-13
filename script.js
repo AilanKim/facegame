@@ -292,3 +292,24 @@ init();
 addEventListener('resize', () => {
   if (!playing && isWide() !== wide) init();
 });
+
+const openInfoBtn = document.getElementById('openInfoBtn');
+const closeInfoBtn = document.getElementById('closeInfoBtn');
+const infoModal = document.getElementById('infoModal');
+
+// 설명 버튼 누르면 모달 열기
+openInfoBtn.addEventListener('click', () => {
+    infoModal.style.display = 'flex';
+});
+
+// X 닫기 버튼 누르면 모달 닫기
+closeInfoBtn.addEventListener('click', () => {
+    infoModal.style.display = 'none';
+});
+
+// 모달 바깥 빈 화면을 눌러도 닫히도록 설정
+window.addEventListener('click', (e) => {
+    if (e.target === infoModal) {
+        infoModal.style.display = 'none';
+    }
+});
