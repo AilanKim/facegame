@@ -11,6 +11,8 @@
   - Safe Area(`env(safe-area-inset-safe)`) 대응으로 최신 아이폰 및 안드로이드 기기 지원
   - Dynamic Viewport Units(`dvh`, `vw`) 기반 레이아웃으로 모바일 화면 맞춤
   - 터치 조작 최적화 (`touch-action: none`) 및 사용자 확대 금지 처리
+- **📲 홈 화면 아이콘 지원**
+  - 홈 화면에 추가할 때 표정게임 아이콘을 표시합니다.
 - **🌙 다크 모드 지원 (Dark Mode)**
   - 시스템 테마(`prefers-color-scheme`) 연동 및 `data-theme` 커스텀 속성 지원
 - **🎯 직관적인 UI / UX**

@@ -72,10 +72,12 @@ function upd() {
   const timeEl = document.querySelector('.time-val');
   const barEl = document.querySelector('.bar-fill');
   const hintBtn = document.querySelector('.hint-btn');
+  const gameControls = document.querySelector('.game-controls');
 
   if (scoreEl) scoreEl.textContent = score;
   if (timeEl) timeEl.textContent = left;
   if (barEl) barEl.style.width = (left / TIME * 100) + '%';
+  if (gameControls) gameControls.hidden = !playing;
   if (hintBtn) {
     hintBtn.textContent = '💡Hint ' + hints;
     hintBtn.disabled = hints <= 0 || !playing;
@@ -250,6 +252,7 @@ setDd();
 function end() {
   playing = false;
   clearInterval(timer);
+  upd();
   const nb = score > best && score > 0;
   if (nb) {
     best = score;
@@ -261,20 +264,33 @@ function end() {
   document.querySelector('.intro').style.display = 'none';
   document.querySelector('.res').style.display = 'flex';
   document.querySelector('.big').textContent = score;
-  document.querySelector('.best-t').textContent = diff + ' · ' + (nb ? '🎉🎉 BEST!' : 'BEST ' + best);
+  document.querySelector('.best-t').textContent = diff + ' 난이도 · 최고 점수 ' + best + '점' + (nb ? ' 🎉' : '');
   document.querySelector('.go-btn').textContent = 'Replay';
+  document.querySelector('.ov').classList.add('result-mode');
   document.querySelector('.ov').classList.remove('hide');
 }
 
-  document.querySelector('.go-btn').onclick = () => {
+function returnHome() {
+  clearInterval(timer);
+  playing = false;
+  document.querySelector('.res').style.display = 'none';
+  document.querySelector('.intro').style.display = 'block';
+  document.querySelector('.start-btn').textContent = 'Start';
+  document.querySelector('.share-msg').textContent = '';
+  document.querySelector('.ov').classList.remove('result-mode');
+  document.querySelector('.ov').classList.remove('hide');
+  init();
+}
+
+function startGame() {
+  document.querySelector('.ov').classList.remove('result-mode');
   document.querySelector('.ov').classList.add('hide');
   document.querySelector('.intro').style.display = 'none';
   document.querySelector('.res').style.display = 'none';
-  
+
   const msgEl = document.querySelector('.msg');
-  
   if (msgEl) msgEl.textContent = '';
-  
+
   init();
   playing = true;
   upd();
@@ -285,7 +301,48 @@ function end() {
     upd();
     if (left <= 0) end();
   }, 1000);
+}
+
+document.querySelector('.home-btn').onclick = returnHome;
+document.querySelector('.game-home-btn').onclick = returnHome;
+document.querySelector('.restart-btn').onclick = startGame;
+document.querySelector('.pass-btn').onclick = end;
+document.querySelector('.result-actions .go-btn').onclick = startGame;
+
+document.querySelector('.share-btn').onclick = async () => {
+  const shareData = {
+    title: '표정게임!',
+    text: '표정게임에서 점수에 도전해 보세요!',
+    url: location.href
+  };
+  const shareMsg = document.querySelector('.share-msg');
+
+  if (navigator.share) {
+    try {
+      await navigator.share(shareData);
+      shareMsg.textContent = '';
+    } catch (error) {
+      if (error.name !== 'AbortError') {
+        shareMsg.textContent = '공유에 실패했어요. 다시 시도해 주세요.';
+      }
+    }
+    return;
+  }
+
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(shareData.url);
+      shareMsg.textContent = '링크를 복사했어요!';
+    } catch {
+      shareMsg.textContent = '링크를 복사하지 못했어요. 주소를 직접 공유해 주세요.';
+    }
+    return;
+  }
+
+  window.prompt('이 사이트 주소를 복사해 공유해 주세요.', shareData.url);
 };
+
+document.querySelector('.start-btn').onclick = startGame;
 
 init();
 

@@ -1,0 +1,23 @@
+{
+  "id": ".",
+  "name": "표정게임",
+  "short_name": "표정게임",
+  "description": "같은 표정을 찾아 맞추는 퍼즐 게임",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#d9d9d9",
+  "theme_color": "#d9d9d9",
+  "icons": [
+    {
+      "src": "faces/icon/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "faces/icon/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

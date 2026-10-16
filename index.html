@@ -4,6 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Facegamekorea!</title>
+  <meta name="theme-color" content="#d9d9d9">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="표정게임">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="faces/icon/apple-touch-icon.png">
   <meta name="google-adsense-account" content="ca-pub-6836871336418749">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://facegamekorea.vercel.app">
@@ -25,7 +30,12 @@
     <div class="bar"><i class="bar-fill"></i></div>
     <div class="board"></div>
     <div class="foot">
-      <button class="hint-btn">💡 Hint 3</button>
+      <button class="hint-btn foot-control">💡 Hint 3</button>
+      <div class="game-controls" hidden>
+        <button class="restart-btn foot-control" type="button">Restart</button>
+        <button class="pass-btn foot-control" type="button">Pass</button>
+        <button class="game-home-btn foot-control" type="button">Home</button>
+      </div>
       <div class="msg"></div>
     </div>
   </div>
@@ -43,7 +53,22 @@
     <div class="res">
       <div class="lb">Score</div>
       <div class="big">0</div>
+      <div class="result-actions">
+        <button class="go-btn">Replay</button>
+        <button class="home-btn" type="button">Home</button>
+      </div>
       <div class="best best-t"></div>
+      <div class="result-extras">
+        <div class="other-games">
+          <h2>다른 게임</h2>
+          <a href="https://butterwords.pages.dev/" target="_blank" rel="noopener noreferrer">🧈 버터워즈</a>
+          <a href="https://buttergames.pages.dev/" target="_blank" rel="noopener noreferrer">🧩 퀴즈게임</a>
+        </div>
+        <div class="share-group">
+          <button class="share-btn" type="button">이 사이트 공유</button>
+          <p class="share-msg" aria-live="polite"></p>
+        </div>
+      </div>
     </div>
     <div class="dif">
       <button data-d="Easy">Easy</button>
@@ -51,7 +76,7 @@
       <button data-d="Hard">Hard</button>
     </div>
     <div class="dd"></div>
-    <button class="go-btn">Start</button>
+    <button class="go-btn start-btn">Start</button>
   </div>
 
   <div class="info-modal-overlay" id="infoModal">

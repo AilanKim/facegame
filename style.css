@@ -172,6 +172,12 @@ body {
   display: none;
 }
 
+.ov.result-mode .dif,
+.ov.result-mode .dd,
+.ov.result-mode .start-btn {
+  display: none;
+}
+
 .ov h1 {
   margin: 0 0 8px;
   color: #111;
@@ -204,6 +210,7 @@ body {
   display: none;
   flex-direction: column;
   align-items: center;
+  width: min(100%, 360px);
 }
 
 .res .lb {
@@ -222,7 +229,90 @@ body {
 .res .best {
   font-size: 16px;
   opacity: .8;
-  margin-bottom: 8px;
+  margin: 0 0 18px;
+}
+
+.result-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 4px;
+  margin-bottom: 16px;
+}
+
+.result-actions button {
+  font-size: 16px;
+  padding: 10px 24px;
+  margin: 0;
+}
+
+.home-btn {
+  border: 2px solid currentColor;
+  background: transparent;
+  color: var(--ovfg);
+}
+
+.share-msg {
+  min-height: 36px;
+  font-size: 13px;
+  margin: 6px 0 0;
+}
+
+.result-extras {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: min(100%, 340px);
+  margin-top: 8px;
+}
+
+.other-games {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  flex: 1;
+  min-width: 0;
+  justify-items: center;
+  gap: 8px;
+}
+
+.other-games h2 {
+  margin: 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+.other-games a {
+  width: min(100%, 150px);
+  padding: 7px 9px;
+  border: 1px solid rgba(0, 0, 0, .3);
+  background: transparent;
+  border-radius: 10px;
+  color: var(--ovfg);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.share-group {
+  display: flex;
+  flex: 0 0 124px;
+  flex-direction: column;
+  align-items: stretch;
+  align-self: flex-start;
+  margin-top: 20.5px;
+}
+
+.share-btn {
+  min-height: 38px;
+  padding: 8px 10px;
+  border: 1px solid rgba(0, 0, 0, .3);
+  background: transparent;
+  color: var(--ovfg);
+  font-size: 13px;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .msg {
@@ -251,15 +341,44 @@ body {
 }
 
 .hint-btn {
-  font-size: 15px;
-  padding: 8px 16px;
-  margin: 0;
   background: var(--fg);
   color: var(--bg);
 }
 
+.foot-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 92px;
+  min-width: 92px;
+  max-width: 92px;
+  height: 38px;
+  flex: 0 0 92px;
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 28px;
+}
+
 .hint-btn:disabled {
   opacity: .35;
+}
+
+.game-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.game-controls[hidden] {
+  display: none;
+}
+
+.game-controls button {
+  white-space: nowrap;
 }
 
 .c.hint {
