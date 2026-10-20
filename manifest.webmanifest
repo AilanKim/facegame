@@ -1,7 +1,7 @@
 {
   "id": ".",
-  "name": "표정게임",
-  "short_name": "표정게임",
+  "name": "Facegame Korea",
+  "short_name": "Facegame",
   "description": "같은 표정을 찾아 맞추는 퍼즐 게임",
   "start_url": "./",
   "scope": "./",
